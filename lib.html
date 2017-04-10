@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>lib</title>
+    <style>
+        canvas {
+            
+        }
+    </style>
     <link rel="stylesheet" href="./css/lib.min.css">
 </head>
 <body>
@@ -15,15 +20,20 @@
 
     <!-- main,响应式布局，80% -->
     <div class="main">
+
         <h1 class="title">实验安排一览</h1>
+        <canvas id="sphereric" width="1200" height="50"></canvas>
         <div class="box-wrap">
+
             <ul id="liwrap">
                 <li id="1" class="selected">金相</li>
                 <li id="2">高分子</li>
                 <li id="3">研究方法</li>
                 <li id="4">材料力学性能</li>
             </ul>
+
             <div class="four-lib-wrap">
+            
                 <div class="common-wrap" id="module_1">
                     <h3 class="common-title">金相实验</h3>
                     <div class="common-image">
@@ -66,5 +76,65 @@
         &copy;2017-2018, all rights reserved John Zhu
     </div>
     <script src="./js/lib.min.js"></script>
+    <script>
+        var mainWidth = parseInt(window.getComputedStyle(document.querySelector(".main")).width);
+        document.getElementById("sphereric").width = mainWidth;
+        var sp = document.getElementById("sphereric").getContext("2d");
+        function createRedBall(x, y) {
+            sp.clearRect(0,0,mainWidth,50);
+            if (x === undefined) {
+                x = 0;
+            }
+            if (y === undefined) {
+                y = 25;
+            }
+            sp.beginPath();
+            sp.fillStyle = "red";
+            sp.arc(x, y, 10, 0, 2*Math.PI, true);
+            sp.fill(); 
+        }
+        function createBlueBall(x, y) {
+            sp.clearRect(0,0,mainWidth,50);
+            if (x === undefined) {
+                x = 0;
+            }
+            if (y === undefined) {
+                y = 25;
+            }
+            sp.beginPath();
+            sp.fillStyle = "blue";
+            sp.arc(x, y, 10, 0, 2*Math.PI, true);
+            sp.fill(); 
+        }
+        
+        createRedBall(25);
+
+        function right() {
+            var x = 0;
+            var rightTimer = setInterval(function () {
+                createRedBall(x);
+                x += 2;
+                if (x > mainWidth) {
+                   clearInterval(rightTimer);
+                   left();
+                    alert("何婷，我爱你！");
+                }
+            },16);
+        }
+        right();
+
+        function left() {
+            var x = mainWidth;
+            var leftTimer = setInterval(function () {
+                createBlueBall(x);
+                x -= 2;
+                if (x < 0) {
+                    clearInterval(leftTimer);
+                    right();
+                    alert("何婷，你是不是再乐啊刚刚，傻了吧唧的");
+                } 
+            }, 16);
+        }
+    </script>
 </body>
 </html>
