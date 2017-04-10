@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"  manifest="./lib.appcache">
+<head>
+    <meta charset="UTF-8">
+    <title>lib</title>
+    <link rel="stylesheet" href="./css/lib.min.css">
+</head>
+<body>
+    <!-- header,自适应铺满 -->
+    <div class="header">
+        <div class="img">
+            <img src="./img/logo_back.png" alt="">
+        </div>
+    </div>
+
+    <!-- main,响应式布局，80% -->
+    <div class="main">
+        <h1 class="title">实验安排一览</h1>
+        <div class="box-wrap">
+            <ul id="liwrap">
+                <li id="1" class="selected">金相</li>
+                <li id="2">高分子</li>
+                <li id="3">研究方法</li>
+                <li id="4">材料力学性能</li>
+            </ul>
+            <div class="four-lib-wrap">
+                <div class="common-wrap" id="module_1">
+                    <h3 class="common-title">金相实验</h3>
+                    <div class="common-image">
+                        <img class="real-img" src="./img/jinxiang.png" alt="">
+                    </div>
+                </div>
+                <div class="common-wrap" id="module_2">
+                    <h3 class="common-title">
+                    高分子实验</h3>
+                    <div class="common-image">
+                        <img class="real-img" src="./img/gaofenzi.png" alt="">
+                    </div>
+                    <div class="download">
+                        预览附件：<a href="./jinxiang_application.pdf" >金相实验预约申请表</a>
+                        <br/>
+                        下载附件：<a href="./jinxiang_application.pdf" download="">金相实验预约申请表</a>
+                    </div>
+                </div>
+                <div class="common-wrap" id="module_3">
+                    <h3 class="common-title">研究方法</h3>
+                    <div class="common-image">
+                        <img class="real-img" src="./img/yanjiufangfa.png" alt="">
+                        <img class="real-img" src="./img/yanjiufangfa2.png" alt="">
+                    </div>
+                </div>
+                <div class="common-wrap" id="module_4">
+                    <h3 class="common-title">材料力学性能</h3>
+                    <div class="common-image">
+                        <img class="real-img" src="./img/lixuexingneng.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer, 自适应铺满 -->
+    <div class="footer">
+        &copy;2017-2018, all rights reserved John Zhu
+    </div>
+    <script src="./js/lib.min.js"></script>
+</body>
+</html>
