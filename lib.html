@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>lib</title>
     <style>
-        canvas {
-            
+        div.canvas-wrap {
+            overflow: hidden;
+        }
+        canvas#sphereric {
+            float: left;
+        }
+        canvas#sphereric2 {
+            float: right;
         }
     </style>
     <link rel="stylesheet" href="./css/lib.min.css">
@@ -22,7 +28,10 @@
     <div class="main">
 
         <h1 class="title">实验安排一览</h1>
-        <canvas id="sphereric" width="1200" height="50"></canvas>
+        <div class="canvas-wrap">
+            <canvas id="sphereric" width="1200" height="50"></canvas>
+            <canvas id="sphereric2" width="1200" height="50"></canvas>
+        </div>
         <div class="box-wrap">
 
             <ul id="liwrap">
@@ -78,10 +87,13 @@
     <script src="./js/lib.min.js"></script>
     <script>
         var mainWidth = parseInt(window.getComputedStyle(document.querySelector(".main")).width);
-        document.getElementById("sphereric").width = mainWidth;
+        document.getElementById("sphereric").width = mainWidth/2;
+        document.getElementById("sphereric2").width = mainWidth/2;
         var sp = document.getElementById("sphereric").getContext("2d");
+        var sp2 = document.getElementById("sphereric2").getContext("2d");
         function createRedBall(x, y) {
             sp.clearRect(0,0,mainWidth,50);
+            sp2.clearRect(0,0,mainWidth,50);
             if (x === undefined) {
                 x = 0;
             }
@@ -89,12 +101,19 @@
                 y = 25;
             }
             sp.beginPath();
-            sp.fillStyle = "red";
+            var colors = ["green","blue","yellow","pink","black","gray","red","purple"];
+            var index = Math.floor(Math.random()*7);
+            sp.fillStyle = colors[index];
             sp.arc(x, y, 10, 0, 2*Math.PI, true);
-            sp.fill(); 
+            sp.fill();
+            sp2.beginPath();
+            sp2.fillStyle = colors[index];
+            sp2.arc(x, y, 10, 0, 2*Math.PI, true);
+            sp2.fill(); 
         }
         function createBlueBall(x, y) {
-            sp.clearRect(0,0,mainWidth,50);
+            sp.clearRect(0,0,mainWidth/2,50);
+            sp2.clearRect(0,0,mainWidth/2,50);
             if (x === undefined) {
                 x = 0;
             }
@@ -102,9 +121,15 @@
                 y = 25;
             }
             sp.beginPath();
-            sp.fillStyle = "blue";
+            var colors = ["green","blue","yellow","pink","black","gray","red","purple"];
+            var index = Math.floor(Math.random()*7);
+            sp.fillStyle = colors[index];
             sp.arc(x, y, 10, 0, 2*Math.PI, true);
             sp.fill(); 
+            sp2.beginPath();
+            sp2.fillStyle = colors[index];
+            sp2.arc(x, y, 10, 0, 2*Math.PI, true);
+            sp2.fill(); 
         }
         
         createRedBall(25);
@@ -113,27 +138,25 @@
             var x = 0;
             var rightTimer = setInterval(function () {
                 createRedBall(x);
-                x += 2;
-                if (x > mainWidth) {
+                x += 1;
+                if (x > mainWidth/2) {
                    clearInterval(rightTimer);
                    left();
-                    alert("何婷，我爱你！");
                 }
-            },16);
+            },13);
         }
         right();
 
         function left() {
-            var x = mainWidth;
+            var x = mainWidth/2;
             var leftTimer = setInterval(function () {
                 createBlueBall(x);
-                x -= 2;
+                x -= 1;
                 if (x < 0) {
                     clearInterval(leftTimer);
                     right();
-                    alert("何婷，你是不是再乐啊刚刚，傻了吧唧的");
                 } 
-            }, 16);
+            }, 13);
         }
     </script>
 </body>
