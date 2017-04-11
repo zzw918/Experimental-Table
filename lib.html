@@ -15,6 +15,7 @@
         }
     </style>
     <link rel="stylesheet" href="./css/lib.min.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <!-- header,自适应铺满 -->
@@ -79,12 +80,22 @@
         </div>
 
     </div>
+    <div class="container">
+        <div class="answer">
+        </div>
+        <div class="question">
+            <input type="text" class="question-input" autofocus="">
+            <div class="button">发送</div>
+        </div>
+    </div>
 
     <!-- footer, 自适应铺满 -->
     <div class="footer">
         &copy;2017-2018, all rights reserved John Zhu
     </div>
     <script src="./js/lib.min.js"></script>
+    <script src="./js/APP.js"></script>
+    <script src="./js/index.js"></script>
     <script>
         var mainWidth = parseInt(window.getComputedStyle(document.querySelector(".main")).width);
         document.getElementById("sphereric").width = mainWidth/2;

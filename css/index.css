@@ -1,0 +1,20 @@
+.question {
+    position: relative;
+    margin: 15px auto;
+    height: 30px;
+    width: 22%;
+    color: orange;
+}
+.button {
+    position: absolute;
+    top: 2px;
+    right: -30px;
+    width: 20%;
+    cursor: pointer;
+    color: black;
+}
+.answer {
+    padding-left: 15px;
+    width: 25%;
+    margin: 0 auto;
+}
